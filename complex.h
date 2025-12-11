@@ -32,6 +32,13 @@ Complex mulComp(Complex a, Complex b);
 //↓↓↓↓ 3332 東山　真士 記述部(この範囲以外に追加しない)
 
 double get2R(Complex a);
+Complex coniComp(Complex a);
+Complex invComp(Complex a);
+Complex divComp(Complex a, Complex b);
+double getR(Complex a);
+double getTheta(Complex a),
+void printComp(Complex a);
+void printCompRT(Complex a);
 
 
 //↑↑↑↑ ここまでを 3332 東山　真士 が記述(この範囲以外に追加しない)
