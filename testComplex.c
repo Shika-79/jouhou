@@ -106,10 +106,18 @@ void testMulComp() {
 
 // ↓↓↓↓ 3332 東山　真士 記述部(この範囲以外には追加しない)
 
-void testSecond() {
-    testStart("second");
-    assertEqualsDouble(sqrt(4.0), 2.0);
-    assertEqualsDouble(sqrt(9.0), 3.0);
+void testGetR2(){
+    Complex in1, in2, ans;
+    //(2.0)^2 を作成
+    testStart("getR2");
+    in1 = makeComp(1.0, 2.0);
+    ans = getR2(in1);
+    assertEqualsComplex(ans, makeComp(5.0, 0.0));
+    //(1.5)^2 を作成
+    testStart("getR2");
+    in2 = makeComp(-9.0, 40.0);
+    ans = getR2(in2);
+    assertEqualsComplex(ans, makeComp(41.0, 0.0));
 }
 
 // ↑↑↑↑ ここまでを 3332 東山　真士 が記述(この範囲以外には追加しない)
@@ -134,7 +142,7 @@ int main() {
     //////////////////////////////////////////////////////////////////////////////////////////
 
     // ↓↓↓↓ 33yy YYYY 記述部(この範囲以外には追加しない)
-    testSecond();
+    testGetR2();
     // ↑↑↑↑ ここまでを 33yy YYYY が記述(この範囲以外には追加しない)
 
     //////////////////////////////////////////////////////////////////////////////////////////
