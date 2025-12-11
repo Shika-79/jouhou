@@ -36,7 +36,7 @@ Complex coniComp(Complex a);
 Complex invComp(Complex a);
 Complex divComp(Complex a, Complex b);
 double getR(Complex a);
-double getTheta(Complex a),
+double getTheta(Complex a);
 void printComp(Complex a);
 void printCompRT(Complex a);
 
