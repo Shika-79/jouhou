@@ -60,7 +60,43 @@ Complex mulComp(Complex a, Complex b){
     return z;
 }
 
-double getR2();
+double getR2(Complex a){
+    Comple z;
+    z = (sqrt(z.real^2 + z.image^2))^2
+
+    return z;
+}
+
+Complex conjComp(Complex a){
+    Complex z;
+    z.real = a.real;
+    z.image = -1 * a.image;
+
+    return z;
+}
+
+Complex invComp(Complex a){
+    Complex z;
+    Complex w;
+    double Z = getR2(a);
+
+    z.real = a.real;
+    z.image = -1 * a.image;
+
+    w.real = z.real/Z;
+    w.image = z.image/Z;
+
+    return w;
+}
+
+Complex divComp(Complex a, Complex b){
+    Complex z;
+    Complex w;
+
+
+}
+
+
 
 //↑↑↑↑ ここまでを 33xx XXXX が記述(この範囲以外には追加しない)
 
