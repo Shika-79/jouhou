@@ -18,7 +18,7 @@ typedef struct {
 // プロトタイプ宣言部
 //↓↓↓↓ 3319 鹿野　一貴 記述部(この範囲以外に追加しない)
 
-Complex makeComp(double a, double b);
+Complex makeComp(double real, double image);
 Complex makeCompRT(double r, double theta);
 Complex addComp(Complex a, Complex b);
 Complex subComp(Complex a, Complex b);

@@ -12,10 +12,10 @@
 
 //↓↓↓↓ 3319 鹿野　一貴 記述部(雛形まで。この範囲以外には追加しない)
 
-Complex makeComp(double a, double b){
+Complex makeComp(double real, double image){
     Complex z;
-    z.real = a;
-    z.image = b;
+    z.real = real;
+    z.image = image;
 
     return z;
 }
@@ -59,6 +59,8 @@ Complex mulComp(Complex a, Complex b){
 
     return z;
 }
+
+double getR2();
 
 //↑↑↑↑ ここまでを 33xx XXXX が記述(この範囲以外には追加しない)
 
