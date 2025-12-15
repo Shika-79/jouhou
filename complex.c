@@ -86,12 +86,12 @@ Complex invComp(Complex a){
     return w;
 }
 
-//Complex divComp(Complex a, Complex b){
-  //  Complex z;
-    //Complex w;
+Complex divComp(Complex a, Complex b){
+    Complex z;
+    Complex w;
 
 
-//}
+}
 
 
 
