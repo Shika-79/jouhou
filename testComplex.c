@@ -57,7 +57,7 @@ void testAddComp() {
     in2 = makeComp(2.0, 4.0);
     ans = addComp(in1, in2);
     assertEqualsComplex(ans, makeComp(3.0, 6.0));
-    //5.0 + 12.0jを作成
+    //5.3 + 12.1jを作成
     testStart("addComp");
     in1 = makeComp(2.3, 5.0);
     in2 = makeComp(3.0, 7.6);
@@ -73,12 +73,12 @@ void testSubComp() {
     in2 = makeComp(2.0, 4.0);
     ans = subComp(in1, in2);
     assertEqualsComplex(ans, makeComp(3.0, 6.0));
-    //5.0 + 12.0jを作成
+    //4.6 + 12.1jを作成
     testStart("subComp");
-    in1 = makeComp(8.0, 19.0);
-    in2 = makeComp(3.0, 7.0);
+    in1 = makeComp(8.0, 19.1);
+    in2 = makeComp(3.4, 7.0);
     ans = subComp(in1, in2);
-    assertEqualsComplex(ans, makeComp(5.0, 12.0));
+    assertEqualsComplex(ans, makeComp(4.6, 12.1));
 }
 
 void testCmulComp() {
@@ -88,11 +88,11 @@ void testCmulComp() {
     in1 = makeComp(2.0, 3.0);
     ans = cmulComp(in1, 2.0);
     assertEqualsComplex(ans, makeComp(4.0, 6.0));
-    //6.0 + 12.0jを作成
+    //6.0 - 12.0jを作成
     testStart("cmulComp");
-    in2 = makeComp(2.0, 4.0);
+    in2 = makeComp(2.0, -4.0);
     ans = cmulComp(in2, 3.0);
-    assertEqualsComplex(ans, makeComp(6.0, 12.0));
+    assertEqualsComplex(ans, makeComp(6.0, -12.0));
 }
 
 void testMulComp() {
@@ -121,12 +121,12 @@ void testMulComp() {
 void testGetR2(){
     Complex in1, in2;
     double ans;
-    //(2.0)^2 を作成
+    // 1.0+j2.0の大きさ を作成
     testStart("getR2");
     in1 = makeComp(1.0, 2.0);
     ans = getR2(in1);
     assertEqualsDouble(ans, 5.0);
-    //(1.5)^2 を作成
+    // 9.0+j41.0の大きさ を作成
     testStart("getR2");
     in2 = makeComp(-9.0, 40.0);
     ans = getR2(in2);
@@ -137,16 +137,21 @@ void testGetR2(){
 
 void testConjComp(){
     Complex in1, in2 , ans;
+    // 2.0 + 3.0jの共役複素数を作成
     testStart("conjComp");
     in1 = makeComp(2.0, 3.0);
     ans = conjComp(in1);
     assertEqualsComplex(ans, makeComp(2.0, -3.0));
-    //(1.5 + 2.3j) * (7.9 + 4.6j)を作成
+    // 7.9 - 4.6jの共役複素数を作成
     testStart("conjComp");
-    in2 = makeComp(7.9, 4.6);
+    in2 = makeComp(7.9, -4.6);
     ans = conjComp(in2);
-    assertEqualsComplex(ans, makeComp(7.9, -4.6));
-
+    assertEqualsComplex(ans, makeComp(7.9, 4.6));
+    // -7.9 - 4.6jの共役複素数を作成
+    testStart("conjComp");
+    in2 = makeComp(-7.9, -4.6);
+    ans = conjComp(in2);
+    assertEqualsComplex(ans, makeComp(-7.9, 4.6));
 }
 
 
