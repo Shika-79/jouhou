@@ -89,8 +89,7 @@ Complex invComp(Complex a){
 Complex divComp(Complex a, Complex b){
     Complex z;
     Complex w;
-
-
+    
 }
 
 
