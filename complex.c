@@ -61,10 +61,7 @@ Complex mulComp(Complex a, Complex b){
 }
 
 double getR2(Complex a){
-    Comple z;
-    z = (sqrt(z.real^2 + z.image^2))^2
-
-    return z;
+    return (a.real * a.real + a.image * a.image);
 }
 
 Complex conjComp(Complex a){
@@ -89,12 +86,12 @@ Complex invComp(Complex a){
     return w;
 }
 
-Complex divComp(Complex a, Complex b){
-    Complex z;
-    Complex w;
+//Complex divComp(Complex a, Complex b){
+  //  Complex z;
+    //Complex w;
 
 
-}
+//}
 
 
 
