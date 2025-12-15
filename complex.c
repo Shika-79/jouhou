@@ -87,8 +87,8 @@ Complex divComp(Complex a, Complex b){
     Complex z;
     Complex J = invComp(b);
 
-    z.real = a.real * J.real;
-    z.image = a.image * J.image;
+    z.real = a.real * J.real - a.image * J.image;
+    z.image = a.real * J.image + a.image * J.real;
 
     return z;
 }

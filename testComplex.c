@@ -180,14 +180,66 @@ void testDivComp(){
     in1 = makeComp(2.0, 3.0);
     in2 = makeComp(4.5, -6.7);
     ans = divComp(in1, in2);
-    assertEqualsComplex(ans, makeComp(-555.0/3257.0, 1345.0/3257.0));
+    assertEqualsComplex(ans, makeComp(-11.1/65.14, 26.9/65.14));
     // (-2.0 + 3.0j) / (4.5 - 6.7j)の除算を作成
     testStart("divComp");
     in1 = makeComp(-2.0, 3.0);
     in2 = makeComp(4.5, -6.7);
     ans = divComp(in1, in2);
-    assertEqualsComplex(ans, makeComp(-1455.0/3257.0, 5.0/3257.0));
+    assertEqualsComplex(ans, makeComp(-29.1/65.14, 0.1/65.14));
 }
+
+void testGetR(){
+    Complex in1, in2;
+    double ans;
+    // (2.0 + 3.0j)の実部表示を作成
+    testStart("getR");
+    in1 = makeComp(2.0, 3.0);
+    ans = getR(in1);
+    assertEqualsDouble(ans, 2.0);
+    // (4.5 - 6.7j)の実部表示を作成
+    testStart("getR");
+    in2 = makeComp(-4.5, -6.7);
+    ans = getR(in2);
+    assertEqualsDouble(ans, -4.5);
+}
+
+
+void testGetTheta(){
+    Complex in1;
+    double ans;
+    // 第一象限の偏角計算を作成
+    testStart("getTheta");
+    in1 = makeComp(3.0, 3.0);
+    ans = getTheta(in1);
+    assertEqualsDouble(ans, M_PI/4);
+    // 第二象限の偏角計算を作成
+    testStart("getTheta");
+    in1 = makeComp(-3.0, 3.0);
+    ans = getTheta(in1);
+    assertEqualsDouble(ans, 3 * M_PI/4);
+    // 第三象限の偏角計算を作成
+    testStart("getTheta");
+    in1 = makeComp(-1.0, -sqrt(3));
+    ans = getTheta(in1);
+    assertEqualsDouble(ans, -2 * M_PI/3);
+    // 第四象限の偏角計算を作成
+    testStart("getTheta");
+    in1 = makeComp(1.0, -sqrt(3));
+    ans = getTheta(in1);
+    assertEqualsDouble(ans, -M_PI/3);
+}
+
+void testPrintComp(){
+    Complex in1;
+    char box[64];
+
+    testStart("printComp");
+    in1 = makeComp(2.3, 3.0);
+    assertEqualsString("2.000+3.000j", box);
+}
+
+
 
 
 // ↑↑↑↑ ここまでを 3332 東山　真士 が記述(この範囲以外には追加しない)
@@ -216,6 +268,9 @@ int main() {
     testConjComp();
     testInvComp();
     testDivComp();
+    testGetR();
+    testGetTheta();
+    testPrintComp();
     // ↑↑↑↑ ここまでを 33yy YYYY が記述(この範囲以外には追加しない)
 
     //////////////////////////////////////////////////////////////////////////////////////////
