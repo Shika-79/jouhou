@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define _USE_MATH_DEFINES
 #include <math.h>
 
 // 複素数構造体を使う時には次の行を活かす
@@ -121,6 +122,23 @@ void testGetR2(){
     assertEqualsDouble(ans, 1681.0);
 }
 
+
+
+void testConjComp(){
+    Complex in1, in2 , ans;
+    testStart("mulComp");
+    in1 = makeComp(2.0, 3.0);
+    ans = conjcomp(in1);
+    assertEqualsComplex(ans, makeComp(2.0, -3.0));
+    //(1.5 + 2.3j) * (7.9 + 4.6j)を作成
+    testStart("mulComp");
+    in2 = makeComp(7.9, 4.6);
+    ans = conjcomp(in2);
+    assertEqualsComplex(ans, makeComp(7.9, -4.6));
+
+}
+
+void 
 // ↑↑↑↑ ここまでを 3332 東山　真士 が記述(この範囲以外には追加しない)
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -144,6 +162,7 @@ int main() {
 
     // ↓↓↓↓ 33yy YYYY 記述部(この範囲以外には追加しない)
     testGetR2();
+    testConjComp();
     // ↑↑↑↑ ここまでを 33yy YYYY が記述(この範囲以外には追加しない)
 
     //////////////////////////////////////////////////////////////////////////////////////////
