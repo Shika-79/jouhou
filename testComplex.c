@@ -126,14 +126,14 @@ void testGetR2(){
 
 void testConjComp(){
     Complex in1, in2 , ans;
-    testStart("conjcomp");
+    testStart("conjComp");
     in1 = makeComp(2.0, 3.0);
-    ans = conjcomp(in1);
+    ans = conjComp(in1);
     assertEqualsComplex(ans, makeComp(2.0, -3.0));
     //(1.5 + 2.3j) * (7.9 + 4.6j)を作成
-    testStart("conjcomp");
+    testStart("conjComp");
     in2 = makeComp(7.9, 4.6);
-    ans = conjcomp(in2);
+    ans = conjComp(in2);
     assertEqualsComplex(ans, makeComp(7.9, -4.6));
 
 }
