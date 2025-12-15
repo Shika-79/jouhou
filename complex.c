@@ -74,22 +74,47 @@ Complex conjComp(Complex a){
 
 Complex invComp(Complex a){
     Complex z;
-    Complex w;
-    double Z = getR2(a);
+    Complex w = conjComp(a);
+    double J = getR2(a);
 
-    z.real = a.real;
-    z.image = -1 * a.image;
+    z.real = w.real/J;
+    z.image = w.image/J;
 
-    w.real = z.real/Z;
-    w.image = z.image/Z;
-
-    return w;
+    return z;
 }
 
 Complex divComp(Complex a, Complex b){
     Complex z;
-    Complex w;
-    
+    Complex J = invComp(b);
+
+    z.real = a.real * J.real;
+    z.image = a.image * J.image;
+
+    return z;
+}
+
+double getR(Complex a){
+    return a.real;
+}
+
+double getTheta(Complex a){
+    return atan2(a.image, a.real);
+}
+
+void printComp(Complex a){
+    if (a.image >= 0) {
+        printf("%.3f+%.3fj", a.real, a.image);
+    } else {
+        printf("%.3f%.3fj", a.real, a.image);
+    }
+}
+
+void printCompRT(Complex a){
+    if (a.image >= 0) {
+        printf("%.3f\u2220%.3fj", a.real, a.image);
+    } else {
+        printf("%.3f\u2220%.3fj", a.real, a.image);
+    }
 }
 
 
