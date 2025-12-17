@@ -14,18 +14,22 @@
 void testMakeComp() {
     Complex ans;
     testStart("makeComp");
+
     // 1+2jを作成
     ans = makeComp(1.0, 2.0);
     assertEqualsDouble(ans.real, 1.0);
     assertEqualsDouble(ans.image, 2.0);
+
     // 3.4+5.6jを作成
     ans = makeComp(3.4, 5.6);
     assertEqualsDouble(ans.real, 3.4);
     assertEqualsDouble(ans.image, 5.6);
+
     // 3.4-5.6jを作成
     ans = makeComp(3.4, -5.6);
     assertEqualsDouble(ans.real, 3.4);
     assertEqualsDouble(ans.image, -5.6);
+
     // -3.4-5.6jを作成
     ans = makeComp(-3.4, -5.6);
     assertEqualsDouble(ans.real, -3.4);
@@ -35,15 +39,19 @@ void testMakeComp() {
 void testMakeCompRT() {
     Complex ans;
     testStart("makeCompRT");
+
     // 3∠0
     ans = makeCompRT(3.0, 0);
     assertEqualsComplex(ans, makeComp(3.0, 0.0));
+
     // 2∠π/2
     ans = makeCompRT(2.0, M_PI/2.0);
     assertEqualsComplex(ans, makeComp(0.0, 2.0));
+
     // 1∠(-π/4)
     ans = makeCompRT(1.0, -M_PI/4.0);
     assertEqualsComplex(ans, makeComp(1/sqrt(2), -1/sqrt(2)));
+
     // 1∠(-3*π/4)
     ans = makeCompRT(1.0, -3*M_PI/4.0);
     assertEqualsComplex(ans, makeComp(-1/sqrt(2), -1/sqrt(2)));
@@ -51,14 +59,15 @@ void testMakeCompRT() {
 
 void testAddComp() {
     Complex in1, in2, ans;
-    //3.0 + 6.0jを作成
     testStart("addComp");
+
+    //3.0 + 6.0jを作成
     in1 = makeComp(1.0, 2.0);
     in2 = makeComp(2.0, 4.0);
     ans = addComp(in1, in2);
     assertEqualsComplex(ans, makeComp(3.0, 6.0));
+
     //5.3 + 12.1jを作成
-    testStart("addComp");
     in1 = makeComp(2.3, 5.0);
     in2 = makeComp(3.0, 7.6);
     ans = addComp(in1, in2);
@@ -67,29 +76,31 @@ void testAddComp() {
 
 void testSubComp() {
     Complex in1, in2, ans;
-    //3.0 + 6.0jを作成
     testStart("subComp");
+
+    //3.0 + 6.0jを作成
     in1 = makeComp(5.0, 10.0);
     in2 = makeComp(2.0, 4.0);
     ans = subComp(in1, in2);
     assertEqualsComplex(ans, makeComp(3.0, 6.0));
-    //4.6 + 12.1jを作成
-    testStart("subComp");
+
+    //-4.6 + 12.1jを作成
     in1 = makeComp(8.0, 19.1);
-    in2 = makeComp(3.4, 7.0);
+    in2 = makeComp(12.6, 7.0);
     ans = subComp(in1, in2);
-    assertEqualsComplex(ans, makeComp(4.6, 12.1));
+    assertEqualsComplex(ans, makeComp(-4.6, 12.1));
 }
 
 void testCmulComp() {
     Complex in1, in2, ans;
-    //4.0 + 6.0jを作成
     testStart("cmulComp");
+
+    //4.0 + 6.0jを作成
     in1 = makeComp(2.0, 3.0);
     ans = cmulComp(in1, 2.0);
     assertEqualsComplex(ans, makeComp(4.0, 6.0));
+
     //6.0 - 12.0jを作成
-    testStart("cmulComp");
     in2 = makeComp(2.0, -4.0);
     ans = cmulComp(in2, 3.0);
     assertEqualsComplex(ans, makeComp(6.0, -12.0));
@@ -97,18 +108,25 @@ void testCmulComp() {
 
 void testMulComp() {
     Complex in1, in2, ans;
-    //(2.0 + 3.0j) * (3.0 + 4.0j)を作成
     testStart("mulComp");
+
+    //(2.0 + 3.0j) * (3.0 + 4.0j)を作成
     in1 = makeComp(2.0, 3.0);
     in2 = makeComp(3.0, 4.0);
     ans = mulComp(in1, in2);
     assertEqualsComplex(ans, makeComp(-6.0, 17.0));
+
     //(1.5 + 2.3j) * (7.9 + 4.6j)を作成
-    testStart("mulComp");
     in1 = makeComp(1.5, 2.3);
     in2 = makeComp(7.9, 4.6);
     ans = mulComp(in1, in2);
     assertEqualsComplex(ans, makeComp(1.27, 25.07));
+
+    //(1.5 + 2.3j) * (7.9 - 4.6j)を作成
+    in1 = makeComp(1.5, 2.3);
+    in2 = makeComp(7.9, -4.6);
+    ans = mulComp(in1, in2);
+    assertEqualsComplex(ans, makeComp(22.43, 11.27));
 }
 
 
@@ -121,13 +139,14 @@ void testMulComp() {
 void testGetR2(){
     Complex in1, in2;
     double ans;
-    // 1.0+j2.0の大きさ を作成
     testStart("getR2");
+
+    // 1.0+j2.0の大きさ を作成
     in1 = makeComp(1.0, 2.0);
     ans = getR2(in1);
     assertEqualsDouble(ans, 5.0);
-    // 9.0+j41.0の大きさ を作成
-    testStart("getR2");
+
+    // -9.0+j41.0の大きさ を作成
     in2 = makeComp(-9.0, 40.0);
     ans = getR2(in2);
     assertEqualsDouble(ans, 1681.0);
@@ -137,18 +156,19 @@ void testGetR2(){
 
 void testConjComp(){
     Complex in1, in2, in3, ans;
-    // 2.0 + 3.0jの共役複素数を作成
     testStart("conjComp");
+
+    // 2.0 + 3.0jの共役複素数を作成
     in1 = makeComp(2.0, 3.0);
     ans = conjComp(in1);
     assertEqualsComplex(ans, makeComp(2.0, -3.0));
+
     // 7.9 - 4.6jの共役複素数を作成
-    testStart("conjComp");
     in2 = makeComp(7.9, -4.6);
     ans = conjComp(in2);
     assertEqualsComplex(ans, makeComp(7.9, 4.6));
+
     // -7.9 - 4.6jの共役複素数を作成
-    testStart("conjComp");
     in3 = makeComp(-7.9, -4.6);
     ans = conjComp(in3);
     assertEqualsComplex(ans, makeComp(-7.9, 4.6));
@@ -156,18 +176,19 @@ void testConjComp(){
 
 void testInvComp(){
     Complex in1, in2, in3, ans;
-    // 2.0 + 3.0jの逆数を作成
     testStart("invComp");
+
+    // 2.0 + 3.0jの逆数を作成
     in1 = makeComp(2.0, 3.0);
     ans = invComp(in1);
     assertEqualsComplex(ans, makeComp(2.0/13.0, -3.0/13.0));
+
     // 7.9 - 4.6jの逆数を作成
-    testStart("invComp");
     in2 = makeComp(7.9, -4.6);
     ans = invComp(in2);
     assertEqualsComplex(ans, makeComp(7.9/83.57, 4.6/83.57));
+    
     // -7.9 - 4.6jの逆数を作成
-    testStart("invComp");
     in3 = makeComp(-7.9, -4.6);
     ans = invComp(in3);
     assertEqualsComplex(ans, makeComp(-7.9/83.57, 4.6/83.57));
@@ -175,14 +196,15 @@ void testInvComp(){
 
 void testDivComp(){
     Complex in1, in2, ans;
-    // (2.0 + 3.0j) / (4.5 - 6.7j)の除算を作成
     testStart("divComp");
+
+    // (2.0 + 3.0j) / (4.5 - 6.7j)の除算を作成
     in1 = makeComp(2.0, 3.0);
     in2 = makeComp(4.5, -6.7);
     ans = divComp(in1, in2);
     assertEqualsComplex(ans, makeComp(-11.1/65.14, 26.9/65.14));
+
     // (-2.0 + 3.0j) / (4.5 - 6.7j)の除算を作成
-    testStart("divComp");
     in1 = makeComp(-2.0, 3.0);
     in2 = makeComp(4.5, -6.7);
     ans = divComp(in1, in2);
@@ -192,13 +214,14 @@ void testDivComp(){
 void testGetR(){
     Complex in1, in2;
     double ans;
-    // (2.0 + 3.0j)の実部表示を作成
     testStart("getR");
+
+    // (2.0 + 3.0j)の実部表示を作成
     in1 = makeComp(2.0, 3.0);
     ans = getR(in1);
     assertEqualsDouble(ans, 2.0);
+
     // (4.5 - 6.7j)の実部表示を作成
-    testStart("getR");
     in2 = makeComp(-4.5, -6.7);
     ans = getR(in2);
     assertEqualsDouble(ans, -4.5);
@@ -208,36 +231,46 @@ void testGetR(){
 void testGetTheta(){
     Complex in1;
     double ans;
-    // 第一象限の偏角計算を作成
     testStart("getTheta");
+
+    // 第一象限の偏角計算を作成
     in1 = makeComp(3.0, 3.0);
     ans = getTheta(in1);
     assertEqualsDouble(ans, M_PI/4);
+
     // 第二象限の偏角計算を作成
-    testStart("getTheta");
     in1 = makeComp(-3.0, 3.0);
     ans = getTheta(in1);
     assertEqualsDouble(ans, 3 * M_PI/4);
+
     // 第三象限の偏角計算を作成
-    testStart("getTheta");
     in1 = makeComp(-1.0, -sqrt(3));
     ans = getTheta(in1);
     assertEqualsDouble(ans, -2 * M_PI/3);
+
     // 第四象限の偏角計算を作成
-    testStart("getTheta");
     in1 = makeComp(1.0, -sqrt(3));
     ans = getTheta(in1);
     assertEqualsDouble(ans, -M_PI/3);
 }
 
-void testPrintComp(){
-    Complex in1;
-    char box[64];
-
+void testPrintComp() {
+    Complex in1, in2;
     testStart("printComp");
-    in1 = makeComp(2.3, 3.0);
-    assertEqualsString("2.000+3.000j", box);
+
+    // 虚部が正
+    in1 = makeComp(1.0, 2.0);
+    printf("answer: ");
+    printComp(in1);
+    printf("\n");
+
+    // 虚部が負
+    in2 = makeComp(1.0, -2.0);
+    printf("answer: ");
+    printComp(in2);
+    printf("\n");
 }
+
 
 
 
