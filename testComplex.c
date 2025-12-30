@@ -271,6 +271,23 @@ void testPrintComp() {
     printf("\n");
 }
 
+void testPrintCompRT() {
+    Complex in1, in2;
+    testStart("printCompRT");
+
+    // 虚部が正
+    in1 = makeComp(1.0, 2.0);
+    printf("answer: ");
+    printCompRT(in1);
+    printf("\n");
+
+    // 虚部が負
+    in2 = makeComp(1.0, -2.0);
+    printf("answer: ");
+    printCompRT(in2);
+    printf("\n");
+}
+
 
 
 
@@ -304,6 +321,7 @@ int main() {
     testGetR();
     testGetTheta();
     testPrintComp();
+    testPrintCompRT();
     // ↑↑↑↑ ここまでを 3332 東山　真士 が記述(この範囲以外には追加しない)
 
     //////////////////////////////////////////////////////////////////////////////////////////

@@ -110,11 +110,13 @@ void printComp(Complex a){
 }
 
 void printCompRT(Complex a){
-    if (a.image >= 0) {
-        printf("%.3f\u2220%.3fj", a.real, a.image);
-    } else {
-        printf("%.3f\u2220%.3fj", a.real, a.image);
-    }
+    double z;
+    double k;
+
+    z = sqrt(getR2(a));
+    k = getTheta(a);
+    
+    printf("%.3f∠%.3f", z, k);
 }
 
 
