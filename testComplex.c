@@ -282,7 +282,7 @@ void testPrintCompRT() {
     printf("\n");
 
     // 虚部が負
-    in2 = makeComp(1.0, -2.0);
+    in2 = makeComp(1.0, 2.0);
     printf("answer: ");
     printCompRT(in2);
     printf("\n");
